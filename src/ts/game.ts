@@ -16,7 +16,7 @@ export class Game {
         for (let r = 0; r < rows; r++) {
             let row: Cell[] = [];
             for (let c = 0; c < cols; c++) {
-                row.push({status: "empty", content: ""});
+                row.push(new Cell("empty", ""));
             }
             this.boardGame.push(row);
         }
@@ -29,8 +29,8 @@ export class Game {
     public reset(): void {
         this.boardGame.forEach((rows: Cell[]) => {
             rows.forEach((cell: Cell) => {
-                cell.status = "empty";
-                cell.content = "";
+                cell.setStatus = "empty";
+                cell.setContent = "";
             })
         });
         this.filledRows = 0;
@@ -45,8 +45,8 @@ export class Game {
         let letIndex: number = 0;
         this.gussWord = guess;
         this.boardGame[this.filledRows++].forEach((cell: Cell) => {
-            cell.content = this.gussWord.charAt(letIndex);
-            cell.status = this.getStatus(cell.content, letIndex);
+            cell.setContent = this.gussWord.charAt(letIndex);
+            cell.setStatus = this.getStatus(cell.getContent, letIndex);
             letIndex++;
         });
     }
@@ -57,11 +57,11 @@ export class Game {
         */
 
         if (this.randomWord[position] === letter) {
-            return "exact"
+            return "exact";
         }
 
         if (this.randomWord.includes(letter)) {
-            return "exists"
+            return "exists";
         }
 
         return "wrong";

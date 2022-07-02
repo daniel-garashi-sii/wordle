@@ -509,6 +509,55 @@ function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
 
 /***/ }),
 
+/***/ "./src/ts/cell.ts":
+/*!************************!*\
+  !*** ./src/ts/cell.ts ***!
+  \************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Cell = void 0;
+var Cell = /** @class */ (function () {
+    function Cell(status, content) {
+        this.status = status;
+        this.content = content;
+    }
+    Object.defineProperty(Cell.prototype, "getContent", {
+        get: function () {
+            return this.content;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Cell.prototype, "setContent", {
+        set: function (value) {
+            this.content = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Cell.prototype, "getStatus", {
+        get: function () {
+            return this.status;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Cell.prototype, "setStatus", {
+        set: function (value) {
+            this.status = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return Cell;
+}());
+exports.Cell = Cell;
+
+
+/***/ }),
+
 /***/ "./src/ts/game.ts":
 /*!************************!*\
   !*** ./src/ts/game.ts ***!
@@ -518,6 +567,7 @@ function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Game = void 0;
+var cell_1 = __webpack_require__(/*! ./cell */ "./src/ts/cell.ts");
 var words_1 = __webpack_require__(/*! ./words */ "./src/ts/words.ts");
 var Game = /** @class */ (function () {
     function Game() {
@@ -532,7 +582,7 @@ var Game = /** @class */ (function () {
         for (var r = 0; r < rows; r++) {
             var row = [];
             for (var c = 0; c < cols; c++) {
-                row.push({ status: "empty", content: "" });
+                row.push(new cell_1.Cell("empty", ""));
             }
             this.boardGame.push(row);
         }
@@ -543,8 +593,8 @@ var Game = /** @class */ (function () {
     Game.prototype.reset = function () {
         this.boardGame.forEach(function (rows) {
             rows.forEach(function (cell) {
-                cell.status = "empty";
-                cell.content = "";
+                cell.setStatus = "empty";
+                cell.setContent = "";
             });
         });
         this.filledRows = 0;
@@ -558,8 +608,8 @@ var Game = /** @class */ (function () {
         var letIndex = 0;
         this.gussWord = guess;
         this.boardGame[this.filledRows++].forEach(function (cell) {
-            cell.content = _this.gussWord.charAt(letIndex);
-            cell.status = _this.getStatus(cell.content, letIndex);
+            cell.setContent = _this.gussWord.charAt(letIndex);
+            cell.setStatus = _this.getStatus(cell.getContent, letIndex);
             letIndex++;
         });
     };
