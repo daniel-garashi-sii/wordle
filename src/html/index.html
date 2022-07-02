@@ -1,21 +1,70 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Typescript web page</title>
-    <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h1>Welcome To the typescript Web Page</h1>
-    <input id="input-name" type="text" />
-    <button id="button-ok">OK</button>
-    <h3>Your name is:<span id="span-name"></span></h3>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Wordle Game</title>
+    <link rel="icon" href="data:,"/>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<h1 class="title">Wordle</h1>
+<hr/>
+<div id="game">
+    <h1>Enter the next guess</h1>
+    <input id="guess_input" type="text" maxlength="5" placeholder="YOUR GUESS HERE">
+    <button id="ok_btn">OK</button>
 
-    <hr />
-    <input id="a" type="number" /> + <input id="b" type="number" />
-    <button id="button-equals">=</button> <span id="span-result"></span>
+    <br>
+    <label id="error_label" for="guess_input">Invalid word</label>
 
-    <script src="main-bundle.js"></script>
-  </body>
+    <div id="board-container">
+        <div id="board">
+            <div id="r1-c1" class="cell"></div>
+            <div id="r1-c2" class="cell"></div>
+            <div id="r1-c3" class="cell"></div>
+            <div id="r1-c4" class="cell"></div>
+            <div id="r1-c5" class="cell"></div>
+
+            <div id="r2-c1" class="cell"></div>
+            <div id="r2-c2" class="cell"></div>
+            <div id="r2-c3" class="cell"></div>
+            <div id="r2-c4" class="cell"></div>
+            <div id="r2-c5" class="cell"></div>
+
+            <div id="r3-c1" class="cell"></div>
+            <div id="r3-c2" class="cell"></div>
+            <div id="r3-c3" class="cell"></div>
+            <div id="r3-c4" class="cell"></div>
+            <div id="r3-c5" class="cell"></div>
+
+            <div id="r4-c1" class="cell"></div>
+            <div id="r4-c2" class="cell"></div>
+            <div id="r4-c3" class="cell"></div>
+            <div id="r4-c4" class="cell"></div>
+            <div id="r4-c5" class="cell"></div>
+
+            <div id="r5-c1" class="cell"></div>
+            <div id="r5-c2" class="cell"></div>
+            <div id="r5-c3" class="cell"></div>
+            <div id="r5-c4" class="cell"></div>
+            <div id="r5-c5" class="cell"></div>
+
+            <div id="r6-c1" class="cell"></div>
+            <div id="r6-c2" class="cell"></div>
+            <div id="r6-c3" class="cell"></div>
+            <div id="r6-c4" class="cell"></div>
+            <div id="r6-c5" class="cell"></div>
+        </div>
+    </div>
+
+    </br>
+    </br>
+    <div id="end_game_msg">Game Over</div>
+    </br>
+    </br>
+    <button id="reset_btn">Reset</button>
+</div>
+
+<script src="main-bundle.js"></script>
+</body>
 </html>
