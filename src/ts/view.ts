@@ -3,12 +3,12 @@ import {Game} from "./game";
 import {Cell} from "./cell";
 
 export class View extends EventEmitter {
-    guessInput: HTMLInputElement;
-    okBtn: HTMLButtonElement;
-    errorLabel: HTMLLabelElement;
-    boardGame: HTMLDivElement[][] = [];
-    endGameMsg: HTMLDivElement;
-    resetBtn: HTMLButtonElement;
+    private readonly guessInput: HTMLInputElement;
+    private readonly okBtn: HTMLButtonElement;
+    private readonly errorLabel: HTMLLabelElement;
+    private readonly boardGame: HTMLDivElement[][] = [];
+    private readonly endGameMsg: HTMLDivElement;
+    private readonly resetBtn: HTMLButtonElement;
 
     constructor() {
         super();
